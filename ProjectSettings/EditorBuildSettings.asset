@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 15fb6cf51a58b62418c4018efc308681
+  - enabled: 1
+    path: Assets/Scenes/DemoScene.unity
+    guid: 41f613f0df098564a9f861fc060e151b
   m_configObjects:
     com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: bf8c3c2d85cfcf2479396870d134dfb8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 306b697274ca27f4aa77ba2731eeb37f, type: 2}
