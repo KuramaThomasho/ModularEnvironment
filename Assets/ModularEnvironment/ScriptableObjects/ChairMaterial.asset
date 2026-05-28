@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ChairMaterial
   m_EditorClassIdentifier: Assembly-CSharp::ObjectMaterial
   material:
-  - {fileID: 2100000, guid: 6e0ae9390f3125441909d301525b50cb, type: 2}
   - {fileID: 2100000, guid: 84cdc970e2ffeb646b930683a84fafad, type: 2}
+  - {fileID: 2100000, guid: 6e0ae9390f3125441909d301525b50cb, type: 2}

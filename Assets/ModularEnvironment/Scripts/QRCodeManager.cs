@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine.Rendering;
 using Unity.VisualScripting;
+using System;
 
 //Add to ENUM when creating new QR code types
 public enum QRCodeType
@@ -71,30 +72,29 @@ public class QRCodeManager : MonoBehaviour
         spawned.transform.Rotate(0, 90, 0);
     }
 
-    //public void ExampleFunction(MRUKTrackable qrCode)
-    //{
-    //    Getting the URL in string form from QR code
-    //    As long as the QR code url has the keyword you would like, any URL would work and any free application QR code generator would work too
-    //    I found that using canva works pretty well without any logos on the QR code.
+//    public void examplefunction(MRUKTrackable qrCode)
+//    {
+//        //getting the url in string form from qr code
+//        //as long as the qr code url has the keyword you would like, any url would work and any free application qr code generator would work too
+//        //i found that using canva works pretty well without any logos on the qr code.
 
-    //    This line is to get the QR url and make it into a string.
-    //    string qrURL = qrCode.MarkerPayloadString;
+//        //this line is to get the qr url and make it into a string.
+//        string qrurl = qrCode.MarkerPayloadString;
 
-    //    This checks if it is an actual QR code that is trackable.
-    //    if (qrCode.TrackableType != OVRAnchor.TrackableType.QRCode)
-    //    {
-    //        Debug.Log("QR not correct");
-    //        return;
-    //    }
+//        //this checks if it is an actual qr code that is trackable.
+//        if (qrCode.TrackableType != OVRAnchor.TrackableType.QRCode)
+//        {
+//            Debug.Log("qr not correct");
+//            return;
+//        }
 
-    //    After which this triggers if the URL has the keyword you are looking for
-    //    if (qrURL.Contains("bgn"))
-    //    {
-    //        QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Thing]);
-              //This part spawns the object, use the list that is set public for the script. All prefabs can be added to it and keep in mind the ENUM order when adding things.
+//        //after which this triggers if the url has the keyword you are looking for
+//        if (qrurl.Contains("bgn"))
+//        {
+//            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Thing]);
+//            //this part spawns the object, use the list that is set public for the script.all prefabs can be added to it and keep in mind the enum order when adding things.
 
-    //        Debug.Log("Object spawned at QR code");
-    //    }
-
-    //}
+//          Debug.Log("object spawned at qr code");
+//        }
+//    }
 }
