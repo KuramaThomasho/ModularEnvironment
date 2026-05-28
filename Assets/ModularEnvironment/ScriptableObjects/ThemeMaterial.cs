@@ -11,7 +11,7 @@ public class ThemeMaterial : ScriptableObject
     public List<Material> wallMaterials;
     public List<Material> floorMaterials;
     public List<Material> ceilingMaterials;
-    public List<Material> tableMaterials;
+    public List<Material> wallArtMaterials;
     public List<Material> doorFrameMaterials;
     public List<Material> windowFrameMaterials;
 }

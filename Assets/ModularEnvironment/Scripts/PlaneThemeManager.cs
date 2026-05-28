@@ -7,8 +7,9 @@ using UnityEngine.XR.ARSubsystems;
 
 public class PlaneThemeManager : MonoBehaviour
 {
-    ARPlane m_ARPlane;
-    MeshRenderer m_PlaneMeshRenderer;
+    MeshRenderer planeMeshRendererMat;
+
+    public PlaneSurfaces planeSurface;
 
     // This is the theme 
     private Theme currentTheme;
@@ -20,8 +21,7 @@ public class PlaneThemeManager : MonoBehaviour
 
     void Awake()
     {
-        m_ARPlane = GetComponent<ARPlane>();
-        m_PlaneMeshRenderer = GetComponent<MeshRenderer>();
+        planeMeshRendererMat = GetComponent<MeshRenderer>();
 
         //System Manager holds the global theme.
         systemManager = FindAnyObjectByType<SystemManager>();
@@ -47,37 +47,46 @@ public class PlaneThemeManager : MonoBehaviour
 
     void UpdatePlaneMaterial(Theme currentTheme)
     {
-
-        switch (m_ARPlane.classifications)
+        switch (planeSurface)
         {
-            case PlaneClassifications.Floor:
-                m_PlaneMeshRenderer.material = themeMaterial.floorMaterials[(int)currentTheme];
+            case PlaneSurfaces.Floor:
+                planeMeshRendererMat.material = themeMaterial.floorMaterials[(int)currentTheme];
                 //Debug.Log("Its a Floor");
                 break;
-            case PlaneClassifications.WallFace:
-                m_PlaneMeshRenderer.material = themeMaterial.wallMaterials[(int)currentTheme];
+            case PlaneSurfaces.WallFace:
+                planeMeshRendererMat.material = themeMaterial.wallMaterials[(int)currentTheme];
                 //Debug.Log("Its a wall");
                 break;
-            case PlaneClassifications.Ceiling:
-                m_PlaneMeshRenderer.material = themeMaterial.ceilingMaterials[(int)currentTheme];
+            case PlaneSurfaces.Ceiling:
+                planeMeshRendererMat.material = themeMaterial.ceilingMaterials[(int)currentTheme];
                 //Debug.Log("Its a ceiling");
                 break;
-            case PlaneClassifications.Table:
-                m_PlaneMeshRenderer.material = themeMaterial.tableMaterials[(int)currentTheme];
-                //Debug.Log("Its a Table");
+            case PlaneSurfaces.WallArt:
+                planeMeshRendererMat.material = themeMaterial.wallArtMaterials[(int)currentTheme];
+                //Debug.Log("Its a WallArt");
                 break;
-            case PlaneClassifications.DoorFrame:
-                m_PlaneMeshRenderer.material = themeMaterial.doorFrameMaterials[(int)currentTheme];
+            case PlaneSurfaces.DoorFrame:
+                planeMeshRendererMat.material = themeMaterial.doorFrameMaterials[(int)currentTheme];
                 //Debug.Log("Its a Door");
                 break;
-            case PlaneClassifications.WindowFrame:
-                m_PlaneMeshRenderer.material = themeMaterial.windowFrameMaterials[(int)currentTheme];
+            case PlaneSurfaces.WindowFrame:
+                planeMeshRendererMat.material = themeMaterial.windowFrameMaterials[(int)currentTheme];
                 //Debug.Log("Its a Window");
+                break;
+            default:
                 break;
         }
     }
 }
 
 
-
+public enum PlaneSurfaces
+{
+    Floor,
+    WallFace,
+    Ceiling,
+    WallArt,
+    DoorFrame,
+    WindowFrame
+}
 
