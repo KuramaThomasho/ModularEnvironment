@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class SystemManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class SystemManager : MonoBehaviour
                 globalTheme = Theme.CyberPunk;
                 break;
 
+            case 2:
+                globalTheme = Theme.Ignore;
+                break;
+
         };
     }
 }
@@ -23,5 +28,6 @@ public class SystemManager : MonoBehaviour
 public enum Theme
 {
     PostApocalype,
-    CyberPunk
+    CyberPunk,
+    Ignore
 }

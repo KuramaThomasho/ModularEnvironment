@@ -10,7 +10,7 @@ using System;
 public enum QRCodeType
 {
     Chair,
-    Table
+    Lamp
 }
 
 public class QRCodeManager : MonoBehaviour
@@ -23,7 +23,8 @@ public class QRCodeManager : MonoBehaviour
     {
         MRUK.Instance.SceneSettings.TrackableAdded.AddListener(OnQRCodeTracked);
         MRUK.Instance.SceneSettings.TrackableAdded.AddListener(OnChairQRCodeTracked);
-        Debug.Log("Adding Listeners");
+        MRUK.Instance.SceneSettings.TrackableAdded.AddListener(OnLampQRCodeTracked);
+        //Debug.Log("Adding Listeners");
     }
 
     public void OnQRCodeTracked(MRUKTrackable qrCode)
@@ -63,6 +64,24 @@ public class QRCodeManager : MonoBehaviour
         }
     }
 
+    public void OnLampQRCodeTracked(MRUKTrackable qrCode)
+    {
+        //Getting the URL in string form from QR code
+        string qrURL = qrCode.MarkerPayloadString;
+
+        if (qrCode.TrackableType != OVRAnchor.TrackableType.QRCode)
+        {
+            Debug.Log("QR not correct");
+            return;
+        }
+        Debug.Log("QR code tracked with URL: " + qrURL);
+        if (qrURL.Contains("lamp"))
+        {
+            //Debug.Log("Its a lamp!");
+            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Lamp]); //physicalObjects[1] is the lamp prefab
+        }
+    }
+
     private void QRObjectSpawner(MRUKTrackable qrCode, GameObject prefab)
     {
         Vector3 targetPosition = qrCode.transform.position;
@@ -71,6 +90,7 @@ public class QRCodeManager : MonoBehaviour
         GameObject spawned = Instantiate(prefab, targetPosition, targetRotation);
         spawned.transform.Rotate(0, 90, 0);
     }
+
 
 //    public void examplefunction(MRUKTrackable qrCode)
 //    {
@@ -89,12 +109,12 @@ public class QRCodeManager : MonoBehaviour
 //        }
 
 //        //after which this triggers if the url has the keyword you are looking for
-//        if (qrurl.Contains("bgn"))
+//        if (qrurl.Contains("spacelab"))
 //        {
-//            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Thing]);
+//            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Spacelab]);
 //            //this part spawns the object, use the list that is set public for the script.all prefabs can be added to it and keep in mind the enum order when adding things.
 
-//          Debug.Log("object spawned at qr code");
+//            Debug.Log("object spawned at qr code");
 //        }
 //    }
 }
