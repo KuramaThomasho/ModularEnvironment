@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 570255434c93ac648bb6b3b067ddb712, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f09df54d9c57fb4aa05c0e1cae59716, type: 2}
     - target: {fileID: 919132149155446097, guid: 570255434c93ac648bb6b3b067ddb712, type: 3}
       propertyPath: m_Name
       value: Wall_Lamp
