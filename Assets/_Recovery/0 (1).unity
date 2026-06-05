@@ -1163,7 +1163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd3cadf0ae95774ba7bff14a86008f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  furniture: {fileID: 6182528204865553177, guid: 9f9db7f48c094924b8a07bff1e0c2a2e, type: 3}
+  debugObject: {fileID: 0}
+  physicalObjects: []
 --- !u!1 &966799628
 GameObject:
   m_ObjectHideFlags: 0

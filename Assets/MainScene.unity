@@ -842,6 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991c5ed6184f14847849efe3bad54e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roomloader
+  wallMaterial: {fileID: 0}
 --- !u!4 &917287533
 Transform:
   m_ObjectHideFlags: 0

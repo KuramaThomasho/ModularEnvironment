@@ -40,7 +40,7 @@ public class QRCodeManager : MonoBehaviour
 
         if (qrURL.Contains("bgn"))
         {
-            QRObjectSpawner(qrCode, debugObject);
+            QRObjectSpawner(qrCode, debugObject, Vector3.zero);
             Debug.Log("Object spawned at QR code");
         }
 
@@ -60,7 +60,8 @@ public class QRCodeManager : MonoBehaviour
         if (qrURL.Contains("chair"))
         {
             Debug.Log("Its a chair!");
-            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Chair]);
+            Vector3 Rotation = new Vector3(0, -90, 0);
+            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Chair], Rotation);
         }
     }
 
@@ -77,18 +78,19 @@ public class QRCodeManager : MonoBehaviour
         Debug.Log("QR code tracked with URL: " + qrURL);
         if (qrURL.Contains("lamp"))
         {
+            Vector3 Rotation = new Vector3(0, 180, 180);
             //Debug.Log("Its a lamp!");
-            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Lamp]); //physicalObjects[1] is the lamp prefab
+            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Lamp], Rotation); //physicalObjects[1] is the lamp prefab
         }
     }
 
-    private void QRObjectSpawner(MRUKTrackable qrCode, GameObject prefab)
+    private void QRObjectSpawner(MRUKTrackable qrCode, GameObject prefab, Vector3 rotation)
     {
         Vector3 targetPosition = qrCode.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(qrCode.transform.forward, qrCode.transform.up);
 
         GameObject spawned = Instantiate(prefab, targetPosition, targetRotation);
-        spawned.transform.Rotate(0, 90, 0);
+        spawned.transform.Rotate(rotation);
     }
 
 

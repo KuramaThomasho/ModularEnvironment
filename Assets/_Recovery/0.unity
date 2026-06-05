@@ -1051,7 +1051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0a3daca5e1a384b9d05d4f9de3822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectLibrary
-  trackedObjects: []
+  planeSurface: 0
+  themeMaterial: {fileID: 0}
 --- !u!114 &830930524
 MonoBehaviour:
   m_ObjectHideFlags: 0

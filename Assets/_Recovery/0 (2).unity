@@ -919,8 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   debugObject: {fileID: 6182528204865553177, guid: 9f9db7f48c094924b8a07bff1e0c2a2e, type: 3}
-  Chair: {fileID: 7092784089957931699, guid: acd25aaa7ab843b408d3da0cd8630d84, type: 3}
-  furnitureList: []
+  physicalObjects: []
 --- !u!1 &966799628
 GameObject:
   m_ObjectHideFlags: 0
