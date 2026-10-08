@@ -23,6 +23,11 @@ public class PlaneThemeManager : MonoBehaviour
     {
         planeMeshRendererMat = GetComponent<MeshRenderer>();
 
+        if (planeMeshRendererMat == null)
+        {
+            planeMeshRendererMat = GetComponentInChildren<MeshRenderer>();
+        }
+
         //System Manager holds the global theme.
         systemManager = FindAnyObjectByType<SystemManager>();
     }
@@ -41,7 +46,7 @@ public class PlaneThemeManager : MonoBehaviour
         {
             UpdatePlaneMaterial(systemManager.globalTheme);
             currentTheme = systemManager.globalTheme;
-            //Debug.Log("Theme updated");
+            Debug.Log("Theme updated");
         }
     }
 
@@ -51,11 +56,11 @@ public class PlaneThemeManager : MonoBehaviour
         {
             case PlaneSurfaces.Floor:
                 planeMeshRendererMat.material = themeMaterial.floorMaterials[(int)currentTheme];
-                //Debug.Log("Its a Floor");
+                Debug.Log("Its a Floor");
                 break;
             case PlaneSurfaces.WallFace:
                 planeMeshRendererMat.material = themeMaterial.wallMaterials[(int)currentTheme];
-                //Debug.Log("Its a wall");
+                Debug.Log("Its a wall");
                 break;
             case PlaneSurfaces.Ceiling:
                 planeMeshRendererMat.material = themeMaterial.ceilingMaterials[(int)currentTheme];

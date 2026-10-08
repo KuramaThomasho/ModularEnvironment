@@ -6,91 +6,59 @@ using UnityEngine.Rendering;
 using Unity.VisualScripting;
 using System;
 
-//Add to ENUM when creating new QR code types
-public enum QRCodeType
+[System.Serializable]
+public class QRCodeObject
 {
-    Chair,
-    Lamp
+    public string QRObjectName;
+    public GameObject prefab;
+    public Vector3 rotation;
 }
-
 public class QRCodeManager : MonoBehaviour
 {
-    public GameObject debugObject;
-    public List<GameObject> physicalObjects;
+
+    [Header("QR code objects")]
+    [SerializeField] private List<QRCodeObject> qrCodes = new List<QRCodeObject>();
+
 
     //Adding listeners for the QR code tracking event.
     void Start()
     {
         MRUK.Instance.SceneSettings.TrackableAdded.AddListener(OnQRCodeTracked);
-        MRUK.Instance.SceneSettings.TrackableAdded.AddListener(OnChairQRCodeTracked);
-        MRUK.Instance.SceneSettings.TrackableAdded.AddListener(OnLampQRCodeTracked);
         //Debug.Log("Adding Listeners");
     }
 
     public void OnQRCodeTracked(MRUKTrackable qrCode)
     {
-        //Getting the URL in string form from QR code
-        string qrURL = qrCode.MarkerPayloadString;
-
         if (qrCode.TrackableType != OVRAnchor.TrackableType.QRCode)
         {
-            Debug.Log("QR not correct");
+            //If not a Valid QR code, return
             return;
         }
 
-        if (qrURL.Contains("bgn"))
-        {
-            QRObjectSpawner(qrCode, debugObject, Vector3.zero);
-            Debug.Log("Object spawned at QR code");
-        }
-
-    }
-
-    public void OnChairQRCodeTracked(MRUKTrackable qrCode)
-    {
         //Getting the URL in string form from QR code
         string qrURL = qrCode.MarkerPayloadString;
 
-        if (qrCode.TrackableType != OVRAnchor.TrackableType.QRCode)
+        foreach (QRCodeObject qRCodeObject in qrCodes)
         {
-            Debug.Log("QR not correct");
-            return;
-        }
-        Debug.Log("QR code tracked with URL: " + qrURL);
-        if (qrURL.Contains("chair"))
-        {
-            Debug.Log("Its a chair!");
-            Vector3 Rotation = new Vector3(0, -90, 0);
-            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Chair], Rotation);
+            if (qrURL.Contains(qRCodeObject.QRObjectName))
+            {
+                QRObjectSpawner(qrCode, qRCodeObject);
+                return;
+            }
         }
     }
 
-    public void OnLampQRCodeTracked(MRUKTrackable qrCode)
-    {
-        //Getting the URL in string form from QR code
-        string qrURL = qrCode.MarkerPayloadString;
 
-        if (qrCode.TrackableType != OVRAnchor.TrackableType.QRCode)
-        {
-            Debug.Log("QR not correct");
-            return;
-        }
-        Debug.Log("QR code tracked with URL: " + qrURL);
-        if (qrURL.Contains("lamp"))
-        {
-            Vector3 Rotation = new Vector3(0, 180, 180);
-            //Debug.Log("Its a lamp!");
-            QRObjectSpawner(qrCode, physicalObjects[(int)QRCodeType.Lamp], Rotation); //physicalObjects[1] is the lamp prefab
-        }
-    }
 
-    private void QRObjectSpawner(MRUKTrackable qrCode, GameObject prefab, Vector3 rotation)
+    private void QRObjectSpawner(MRUKTrackable qrCode, QRCodeObject qrCodeObject)
     {
         Vector3 targetPosition = qrCode.transform.position;
+
         Quaternion targetRotation = Quaternion.LookRotation(qrCode.transform.forward, qrCode.transform.up);
 
-        GameObject spawned = Instantiate(prefab, targetPosition, targetRotation);
-        spawned.transform.Rotate(rotation);
+        GameObject spawned = Instantiate(qrCodeObject.prefab, targetPosition, targetRotation);
+
+        spawned.transform.Rotate(qrCodeObject.rotation);
     }
 
 
