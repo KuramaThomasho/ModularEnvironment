@@ -46,13 +46,14 @@ public class SpawnObject : MonoBehaviour
     private void CancelPlacement()
     {
         DestroyImmediate(currentPrefab);
+
+        isPlacing = false;
     }
 
     public void SelectObject(GameObject gameObject)
     {
         if (isPlacing)
             return;
-
 
         if (gameObject == null)
         {
