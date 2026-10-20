@@ -2017,6 +2017,9 @@ MonoBehaviour:
   - QRObjectName: lamp
     prefab: {fileID: 4209890774706656807, guid: 3664294e9d1726b4fa893c182cec6554, type: 3}
     rotation: {x: 0, y: 0, z: 0}
+  - QRObjectName: lamp
+    prefab: {fileID: 4209890774706656807, guid: 3664294e9d1726b4fa893c182cec6554, type: 3}
+    rotation: {x: 0, y: 0, z: 0}
 --- !u!4 &294277104
 Transform:
   m_ObjectHideFlags: 0

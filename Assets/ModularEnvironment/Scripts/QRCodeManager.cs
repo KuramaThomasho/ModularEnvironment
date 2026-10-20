@@ -11,6 +11,8 @@ public class QRCodeObject
 {
     public string QRObjectName;
     public GameObject prefab;
+    
+    [Header("Rotation of object only use if neccessary")]
     public Vector3 rotation;
 }
 public class QRCodeManager : MonoBehaviour
