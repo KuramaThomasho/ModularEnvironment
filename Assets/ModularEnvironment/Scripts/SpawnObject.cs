@@ -2,12 +2,13 @@ using System.Security.Cryptography;
 using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEngine;
+using Meta.XR;
 
 public class SpawnObject : MonoBehaviour
 {
-    [SerializeField] private Transform rayOrigin;
     [SerializeField] private float rayDistance = 10f;
-    [SerializeField] private LayerMask allowedLayer;
+    public EnvironmentRaycastManager envRayManager;
+    public Transform rayStartPoint;
     private bool isPlacing;
     private GameObject currentPrefab;
 
@@ -18,7 +19,7 @@ public class SpawnObject : MonoBehaviour
 
         UpdatePreview();
 
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.Button.One))
         {
             isPlacing = false;
         }
@@ -31,25 +32,46 @@ public class SpawnObject : MonoBehaviour
 
     private void UpdatePreview()
     {
-        Ray ray = new Ray(rayOrigin.position, rayOrigin.forward);
+        Ray ray = new Ray(rayStartPoint.position, rayStartPoint.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, rayDistance, allowedLayer))
+        bool hasHit = envRayManager.Raycast(ray, out var hit, rayDistance);
+
+        if (hasHit)
         {
-            currentPrefab.transform.position = hitInfo.point;
-            currentPrefab.transform.rotation = Quaternion.LookRotation(Vector3.up, hitInfo.normal);
+            currentPrefab.transform.position = hit.point;
+            currentPrefab.transform.rotation = Quaternion.LookRotation(Vector3.up, hit.normal);
         }
     }
 
     private void CancelPlacement()
     {
-        Destroy(currentPrefab);
+        DestroyImmediate(currentPrefab);
     }
 
     public void SelectObject(GameObject gameObject)
     {
-        currentPrefab = gameObject;
+        if (isPlacing)
+            return;
 
-        Instantiate(currentPrefab, transform.position, transform.rotation);
+
+        if (gameObject == null)
+        {
+            Debug.LogError("No prefab was assigned to SelectObject!");
+            return;
+        }
+
+        Vector3 spawnPosition;
+
+        if (rayStartPoint != null)
+        {
+            spawnPosition = rayStartPoint.position + rayStartPoint.forward * 2f;
+        }
+        else
+        {
+            spawnPosition = transform.position;
+        }
+
+        currentPrefab = Instantiate(gameObject, spawnPosition, Quaternion.identity);
 
         isPlacing = true;
     }

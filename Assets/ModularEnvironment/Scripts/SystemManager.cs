@@ -1,5 +1,7 @@
 
 using UnityEngine;
+using Meta.XR.MRUtilityKit;
+using System.Runtime.CompilerServices;
 
 public class SystemManager : MonoBehaviour
 {
@@ -30,7 +32,11 @@ public class SystemManager : MonoBehaviour
         
 
     }
+
 }
+
+
+
 
 //This is the enum for themes, make sure to add the right index for additional themes
 public enum Theme
