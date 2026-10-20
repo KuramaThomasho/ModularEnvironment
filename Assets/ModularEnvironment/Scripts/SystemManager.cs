@@ -8,17 +8,13 @@ public class SystemManager : MonoBehaviour
     public Theme globalTheme;
     public void ThemeSwitcher(int themeIndex)
     {
-        switch (themeIndex)
+        if (themeIndex >= 0 && themeIndex < System.Enum.GetValues(typeof(Theme)).Length)
         {
-            case 0:
-                globalTheme = Theme.Theme1;
-                break;
-            case 1:
-                globalTheme = Theme.Theme2;
-                break;
-            default:
-                globalTheme = Theme.Ignore;
-                break;
+            globalTheme = (Theme)themeIndex;
+        }
+        else
+        {
+            Debug.LogWarning("Invalid theme index: " + themeIndex);
         }
     }
 
@@ -29,15 +25,13 @@ public class SystemManager : MonoBehaviour
         {
             menuPanel.SetActive(!menuPanel.activeSelf);
         }
+        else
+            return;
         
 
     }
 
 }
-
-
-
-
 //This is the enum for themes, make sure to add the right index for additional themes
 public enum Theme
 {
