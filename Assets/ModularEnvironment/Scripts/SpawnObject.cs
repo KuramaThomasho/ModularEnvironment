@@ -55,12 +55,6 @@ public class SpawnObject : MonoBehaviour
         if (isPlacing)
             return;
 
-        if (gameObject == null)
-        {
-            Debug.LogError("No prefab was assigned to SelectObject!");
-            return;
-        }
-
         Vector3 spawnPosition;
 
         if (rayStartPoint != null)
