@@ -2489,7 +2489,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SpawnObject_CancelPlacement_mCD5FE5D677F
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = __this->___currentPrefab;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_DestroyImmediate_m6336EBC83591A5DB64EC70C92132824C6E258705(L_0, NULL);
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:49>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:50>
+		__this->___isPlacing = (bool)0;
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:51>
 		return;
 	}
 }
@@ -2508,7 +2510,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SpawnObject_SelectObject_m1218E958327DB5
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:53>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:55>
 		bool L_0 = __this->___isPlacing;
 		if (!L_0)
 		{
@@ -2516,13 +2518,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SpawnObject_SelectObject_m1218E958327DB5
 		}
 	}
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:54>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:56>
 		return;
 	}
 
 IL_0009:
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:57>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:58>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1 = ___0_gameObject;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
@@ -2533,16 +2535,16 @@ IL_0009:
 		}
 	}
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:59>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:60>
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogError_mB00B2B4468EF3CAF041B038D840820FB84C924B2(_stringLiteralCFF39F661CA47BBEDD2EF35D88003AABCEBB16F0, NULL);
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:60>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:61>
 		return;
 	}
 
 IL_001d:
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:65>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:66>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = __this->___rayStartPoint;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_4;
@@ -2553,7 +2555,7 @@ IL_001d:
 		}
 	}
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:67>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:68>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5 = __this->___rayStartPoint;
 		NullCheck(L_5);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
@@ -2572,7 +2574,7 @@ IL_001d:
 
 IL_0053:
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:71>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:72>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_11;
 		L_11 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_11);
@@ -2583,7 +2585,7 @@ IL_0053:
 
 IL_005f:
 	{
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:74>
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:75>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_13 = ___0_gameObject;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14 = V_0;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_15;
@@ -2593,9 +2595,9 @@ IL_005f:
 		L_16 = Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4(L_13, L_14, L_15, Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
 		__this->___currentPrefab = L_16;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___currentPrefab), (void*)L_16);
-		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:76>
-		__this->___isPlacing = (bool)1;
 		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:77>
+		__this->___isPlacing = (bool)1;
+		//<source_info:/Users/kursma/Desktop/ModularEnviromentV1/ModularEnvironment/Assets/ModularEnvironment/Scripts/SpawnObject.cs:78>
 		return;
 	}
 }
