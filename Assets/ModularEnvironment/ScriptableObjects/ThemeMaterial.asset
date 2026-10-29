@@ -15,24 +15,30 @@ MonoBehaviour:
   wallMaterials:
   - {fileID: 2100000, guid: c5df2c8738a5cde4584f04fcb0d0bb08, type: 2}
   - {fileID: 2100000, guid: d467a7916e7b00846bde4b73ba04c9ce, type: 2}
+  - {fileID: 2100000, guid: 91ff3830fc4055a4fb0d0d2be32101a7, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   floorMaterials:
   - {fileID: 2100000, guid: 5d7cc7091f4c680419c0312e89589178, type: 2}
   - {fileID: 2100000, guid: 58fb1159a7401754286176f65657c220, type: 2}
+  - {fileID: 2100000, guid: 91ff3830fc4055a4fb0d0d2be32101a7, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   ceilingMaterials:
   - {fileID: 2100000, guid: 5d7cc7091f4c680419c0312e89589178, type: 2}
   - {fileID: 2100000, guid: 58fb1159a7401754286176f65657c220, type: 2}
+  - {fileID: 2100000, guid: 91ff3830fc4055a4fb0d0d2be32101a7, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   wallArtMaterials:
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
+  - {fileID: 2100000, guid: 91ff3830fc4055a4fb0d0d2be32101a7, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   doorFrameMaterials:
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
+  - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   windowFrameMaterials:
+  - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}
   - {fileID: 2100000, guid: 9345768e0fdb2dc4495fb6abd773074c, type: 2}

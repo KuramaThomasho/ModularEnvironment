@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb541067ec5c6214b90da143ccf07cca, type: 3}
+  m_Name: Potted_plant_pot
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectMaterial
+  material:
+  - {fileID: 2100000, guid: 7f03fbf216ee5ca4baeffa40aaa8859b, type: 2}
+  - {fileID: 2100000, guid: 959160b02eae7064891727a19232b039, type: 2}

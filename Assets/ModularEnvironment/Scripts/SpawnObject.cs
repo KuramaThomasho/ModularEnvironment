@@ -11,6 +11,10 @@ public class SpawnObject : MonoBehaviour
     public Transform rayStartPoint;
     private bool isPlacing;
     private GameObject currentPrefab;
+    private float rotationOffset = 0f;
+    private Quaternion surfaceRotation;
+    private Vector3 lastSurfaceNormal;
+    private bool hasSurfaceAlignment = false;
 
     private void Update()
     {
@@ -36,11 +40,36 @@ public class SpawnObject : MonoBehaviour
 
         bool hasHit = envRayManager.Raycast(ray, out var hit, rayDistance);
 
-        if (hasHit)
+        if (!hasHit || currentPrefab == null)
         {
-            currentPrefab.transform.position = hit.point;
-            currentPrefab.transform.rotation = Quaternion.LookRotation(Vector3.up, hit.normal);
+            hasSurfaceAlignment = false;
+            return;
         }
+
+        currentPrefab.transform.position = hit.point;
+
+        // Align to the surface only when first hitting it
+        if (!hasSurfaceAlignment ||
+            Vector3.Angle(lastSurfaceNormal, hit.normal) > 5f)
+        {
+            surfaceRotation = Quaternion.FromToRotation(
+                currentPrefab.transform.up,
+                hit.normal
+            ) * currentPrefab.transform.rotation;
+
+            lastSurfaceNormal = hit.normal;
+            rotationOffset = 90f;
+            hasSurfaceAlignment = true;
+        }
+
+        // Rotate around the wall/floor normal using the right joystick
+        float joystickX = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x;
+
+        rotationOffset += joystickX * 90f * Time.deltaTime;
+
+        currentPrefab.transform.rotation =
+            Quaternion.AngleAxis(rotationOffset, hit.normal)
+            * surfaceRotation;
     }
 
     private void CancelPlacement()

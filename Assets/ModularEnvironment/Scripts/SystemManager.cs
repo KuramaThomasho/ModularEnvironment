@@ -21,13 +21,10 @@ public class SystemManager : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Four))
+        if (OVRInput.GetDown(OVRInput.Button.Three))
         {
             menuPanel.SetActive(!menuPanel.activeSelf);
-        }
-        else
-            return;
-        
+        } 
 
     }
 
@@ -37,6 +34,7 @@ public enum Theme
 {
     Theme1,
     Theme2,
+    TestTheme,
     Ignore
 }
 
